@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SG Stop Pulse</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="map"></div>
+
+  <aside id="panel">
+    <header class="brand">
+      <div>
+        <h1>SG Stop Pulse</h1>
+        <p class="sub">Live buses + weather + taxis, at any bus stop</p>
+      </div>
+      <button id="locate" class="btn" title="Find stops near me">◎ Near me</button>
+    </header>
+
+    <div class="search">
+      <input id="q" type="search" placeholder="Search stop code, name or road…" autocomplete="off" />
+      <ul id="results" hidden></ul>
+    </div>
+
+    <section id="empty" class="empty">
+      <p><strong>Tap the map</strong> or search to pick a bus stop.</p>
+      <p class="muted">Try <a href="#stop=83139" data-stop="83139">83139</a>,
+        <a href="#stop=01012" data-stop="01012">01012</a> or
+        <a href="#stop=46009" data-stop="46009">46009</a>.</p>
+    </section>
+
+    <section id="stop" hidden>
+      <div class="stop-head">
+        <div>
+          <h2 id="stop-name"></h2>
+          <p class="muted"><span id="stop-code" class="code"></span> · <span id="stop-road"></span></p>
+        </div>
+        <span id="updated" class="muted small"></span>
+      </div>
+
+      <div id="verdict" class="verdict"></div>
+
+      <div id="conditions" class="conditions"></div>
+
+      <h3>Arrivals <span class="muted small">· tap a service to see its route and live buses</span></h3>
+      <ul id="arrivals" class="arrivals"></ul>
+
+      <h3 id="nearby-h" hidden>Other stops nearby</h3>
+      <ul id="nearby" class="nearby"></ul>
+    </section>
+
+    <footer class="muted small">
+      Data: <a href="https://busrouter.sg" target="_blank" rel="noopener">BusRouter SG</a> /
+      <a href="https://github.com/cheeaun/arrivelah" target="_blank" rel="noopener">arrivelah</a> (LTA DataMall) ·
+      <a href="https://data.gov.sg" target="_blank" rel="noopener">data.gov.sg</a> (NEA, LTA)
+    </footer>
+  </aside>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
